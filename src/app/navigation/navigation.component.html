@@ -1,0 +1,16 @@
+
+  <div class="menu-left">
+    <ul>
+      <li *ngFor="let item of leftMenuItems">
+        <a [routerLink]="item.link">{{ item.name }}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="menu-right">
+    <a *ngIf="menuRightStates.isSignin && menuRightStates.isLogin" [routerLink]="'/signin'">S'inscrire</a>
+    <a *ngIf="menuRightStates.isLogin && !menuRightStates.isLogout" [routerLink]="'/login'">Se connecter</a>
+    <a *ngIf="!menuRightStates.isLogin && menuRightStates.isLogout" [routerLink]="'/logout'">Se déconnecter</a>
+    <a *ngIf="menuRightStates.isAdmin && !menuRightStates.isLogin" [routerLink]="'/admin'">Admin</a>
+  </div>
+
+
