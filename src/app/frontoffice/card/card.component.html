@@ -1,0 +1,23 @@
+<div id="{{ article.id_articles}}" class="article-card__wrapper" (click)="selectArticle( article.id_articles, 1)">
+
+    <div class="article-card__header">
+        <h2>{{ article.title}}</h2>
+        <p>par <span class="article-card__author">{{ article.username}}</span>, publié le <time
+                class="article-card__date">{{ article.creation_date | date: 'medium' }}</time></p>
+    </div>
+    <div class="article-card__main">
+        <div  [innerHTML]="article.description" class="article-card__description">
+           
+        </div>
+        <div class="article-card__cover"
+            [style.background-image]="(article.cover) ? 'url(' + baseUrl + '/images/' + article.cover + ')' : 'url(./assets/img/default.jpg)'">
+        </div>
+    </div>
+
+    <div class="article-card__tags">
+
+        @for (tag of article.tags ; track tag) {
+        <app-tag [tag]="tag"></app-tag>
+        }
+    </div>
+</div>

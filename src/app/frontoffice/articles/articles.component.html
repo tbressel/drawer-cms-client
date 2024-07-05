@@ -1,0 +1,33 @@
+<div class="article-cards-list__wrapper" [ngClass]="{'hidden' : !isWindowOpen}">
+
+
+    <div class="article-cards-list__header">
+
+        <div class="article-cards-list__top">
+
+            <div class="article-cards-list__caseleft" (click)="closeWindow()">
+
+            </div>
+            <div class="article-cards-list__casetitle">
+                <p>
+                    {{title}}
+                </p>
+            </div>
+            <div class="article-cards-list__caseright" (click)="toggleWindow()">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="article-cards-list__bot">
+        <div class="article-cards-list__state-bar">Nombre d'articles : {{ dataArticles.length }}</div>
+    </div>
+
+    <div class="article-cards-list__content" [ngClass]="{'hidden' : isWindowToggled}">
+        @for (article of dataArticles; track article) {
+        <app-card class="article-cards-list__item"[article]="article"></app-card>
+        }
+
+    </div>
+
+</div>

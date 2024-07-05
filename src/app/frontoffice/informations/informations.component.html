@@ -1,1 +1,30 @@
-<p>informations works!</p>
+<div class="about__container" *ngIf="showAbout">
+
+    <div class="about__subcontainer">
+
+        <div class="about__header">
+            <p>
+                ASMtariSTe, L'AsSeMbleur de l'Atari ST
+        </p>
+        <p>
+            Motorola 68000
+        </p>
+    </div>
+
+    <div class="about__picture">
+        <img src="./assets/icons/atari-logo-info.png" alt="GEM">
+    </div>
+
+    <div class="about__footer">
+        <p>Copyright (c) 2024</p>
+        <p>CMS Drawer v1.0-beta, développé par Thomas Bressel</p>
+        <p>Portifolio : <a href="https://www.thomas-bressel.com/" target="_blank">wwww.thomas-bressel.com</a>
+        <p>Stack : Angular 17, Node JS, Express JS, Typescript & mySQL</p>
+        
+    </div>
+    
+    <div class="about__button">
+        <button (click)="toggleAbout()">OK</button>
+    </div>
+</div>
+</div>
