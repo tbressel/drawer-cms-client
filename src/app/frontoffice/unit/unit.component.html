@@ -1,0 +1,25 @@
+<div id="{{diskUnit.id_disk_units}}" class="unit-disk__wrapper">
+    <div class="unit-letter__wrapper">
+        <p class="unit-letter__content">{{diskUnit.letter}}</p>
+    </div>
+
+    <div class="unit-icon__wrapper" (click)="openUnitWindow(diskUnit.id_disk_units)">
+        <div class="unit-icon__white">
+            <img src="./assets/icons/atari-unitdisk.webp" alt="disk-unit-icon">
+
+        </div>
+        <div class="unit-icon__black">
+            <img src="./assets/icons/atari-unitdisk_hover.webp" alt="disk-unit-icon">
+        </div>
+    </div>
+
+    <div class="unit-name__wrapper">
+        <p class="unit-name__content">{{diskUnit.label}}</p>
+    </div>
+
+</div>
+
+
+
+<app-unit-files *ngIf="toggleUnitWindow" [isParentWindowOpened]="toggleUnitWindow"
+    [diskId]="selectedDiskId" (parentWindowStateSend)="onChildWindowClose($event)"></app-unit-files>

@@ -1,0 +1,26 @@
+
+<section>
+    <app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>
+    <p class="timeline__icon">🏁</p>
+    <nav class="timeline">
+        <div class="timeline__inner">
+            <div *ngFor="let page of getPagesArray()" [class.active]="wholeArticle[0]?.page === page" class="timeline__steps">
+                <a [routerLink]="['/article-content', wholeArticle[0]?.id_articles, page]" class="timeline__step js-current-timeline-step"
+                    title="{{page}}"
+                    [ngClass]="{'visited__steps': isPageVisited(wholeArticle[0]?.id_articles, page)}">
+                    <span class="timeline__stepName">
+                      
+                    </span>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+    <p class="timeline__icon">🏆</p>
+</section>
+
+<div class="timeline__chapter-button" *ngIf="(wholeArticle[0]?.page <= wholeArticle[0]?.max_page)">
+    <form (submit)="goToNextChapter(wholeArticle[0]?.id_articles, wholeArticle[0]?.page, wholeArticle[0]?.max_page); $event.preventDefault()">
+        <button type="submit">J'ai terminé ce chapitre je passe au suivant</button>
+    </form>
+</div>

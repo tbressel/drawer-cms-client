@@ -24,13 +24,13 @@ import { CONFIG } from '../../../config';
 
 
 @Component({
-  selector: 'app-card',
+  selector: 'app-arti-card',
   standalone: true,
   imports: [TagComponent, CommonModule],
-  templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  templateUrl: './arti-card.component.html',
+  styleUrl: './arti-card.component.scss'
 })
-export class CardComponent {
+export class ArtiCardComponent {
 
     // Inputs Props
     @Input() article!: CardModel;

@@ -1,3 +1,6 @@
+<div *ngIf="isLoading" class="mask"></div>
+<div *ngIf="isLoading" class="spinner"></div>
+
 <div class="article-cards-list__wrapper" [ngClass]="{'hidden' : !isWindowOpen}">
 
 
@@ -25,9 +28,11 @@
 
     <div class="article-cards-list__content" [ngClass]="{'hidden' : isWindowToggled}">
         @for (article of dataArticles; track article) {
-        <app-card class="article-cards-list__item"[article]="article"></app-card>
+        <app-arti-card class="article-cards-list__item"[article]="article"></app-arti-card>
         }
 
     </div>
 
 </div>
+
+<app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>

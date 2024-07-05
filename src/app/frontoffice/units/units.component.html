@@ -1,0 +1,12 @@
+<div *ngIf="isLoading" class="mask"></div>
+<div *ngIf="isLoading" class="spinner"></div>
+
+<div class="unit-disks-list__wrapper">
+    <ng-container *ngFor="let diskUnit of dataInterface">
+        <app-unit [diskUnit]="diskUnit">
+        </app-unit>
+    </ng-container>
+</div>
+
+
+<app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>

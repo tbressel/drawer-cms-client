@@ -1,0 +1,30 @@
+<div *ngIf="isLoading" class="mask"></div>
+<div *ngIf="isLoading" class="spinner"></div>
+
+<div class="unit-files-list__wrapper">
+    <div class="unit-files-list__header">
+        <div class="unit-files-list__top">
+            <div class="unit-files-list__caseleft" (click)="closeWindow()"></div>
+            <div *ngIf="dataFiles" class="unit-files-list__casetitle">
+                <p>{{dataFiles.length > 0 ? dataFiles[0].label : "Aucun Fichier"}}</p>
+            </div>
+            <div class="unit-files-list__caseright" (click)="hideContent()"></div>
+        </div>
+    </div>
+    <div class="unit-files-list__bot">
+        <div *ngIf="dataFiles &&  dataFiles.length > 0" class="unit-files-list__state-bar">
+            nombre de fichier : {{dataFiles.length}}
+            <div class="unit-files-list__content" [ngClass]="{'hidden' : isContentToggled}">
+                <ul>
+                    <li *ngFor="let file of dataFiles">
+                        <a [href]="baseUrl + '/downloads/' + file.name">
+                            {{file.name}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>

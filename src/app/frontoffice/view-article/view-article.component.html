@@ -1,0 +1,165 @@
+
+<div class="article-window__wrapper" [ngClass]="{'hidden' : !isWindowOpen}">
+    <div class="article-window__header">
+
+
+        <div class="article-window__top">
+            <div class="article-window__caseleft" (click)="closeWindow()"></div>
+            <div *ngIf="wholeArticle && wholeArticle.length > 0" class="article-window__casetitle">
+                <p>
+                    {{wholeArticle[0]?.article_title}} {{wholeArticle[0]?.title}}
+                </p>
+            </div>
+            <div class="article-window__caseright" (click)="toggleWindow()"></div>
+        </div>
+    </div>
+
+
+    <div class="article-window__bot">
+        <div *ngIf="wholeArticle && wholeArticle.length > 0" class="article-window__state-bar">Nombre de pages : {{wholeArticle[0]?.max_page}}</div>
+    </div>
+    <div class="article-window__bot">
+       
+        <app-pages  class="article-window__pages" *ngIf="(wholeArticle && wholeArticle.length > 0) && (wholeArticle[0].id_categories === 2 || wholeArticle[0].id_categories === 3)"
+            [wholeArticle]="wholeArticle" [routeTypeProps]="'article-content'"></app-pages>
+    </div>
+
+
+    <div class="article-window__content" [ngClass]="{'hidden' : isWindowToggled}">
+        <app-timeline *ngIf="wholeArticle && wholeArticle.length > 0 && wholeArticle[0].id_categories === 1"
+            [wholeArticle]="wholeArticle"></app-timeline>
+
+
+        <div *ngIf="wholeArticle && !isQuestionsForm" class="article__wrapper">
+            <header *ngIf="wholeArticle[0]?.page === 1" class="header__wrapper">
+
+                <div class="header__article-title">
+                    <h1>{{wholeArticle[0]?.article_title}}</h1>
+                </div>
+
+                <div class="header__article-bloc--wrapper">
+                    <div class="header__article-bloc--left">
+                        <div class="header__article-description">
+                            <p [innerHTML]="wholeArticle[0]?.article_description"></p>
+                        </div>
+
+                        <div class="header__article-infos">
+                            <p>par <span class="italic">{{wholeArticle[0]?.username}}</span> le <span
+                                    class="italic">{{wholeArticle[0]?.creation_date | date: 'd MMMM yyyy'}}</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="header__article-bloc--right">
+                        <div class="header__article-cover">
+                            <img [src]="baseUrl + '/images/' + wholeArticle[0]?.article_cover" alt="">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <section *ngFor="let content of articleContents" class="main__content--wrapper">
+                    <div *ngIf="content?.title_left || content?.text_left || content?.image_left"
+                        class="main__article-box--left">
+                        <div *ngIf="content.title_left" class="main__article-subtitle--left">
+                            <h2 class="main__content-subtitle--left">{{content.title_left}}</h2>
+                        </div>
+                        <div *ngIf="content.text_left" class="main__article-text--left">
+                            <p [innerHTML]="content.text_left"></p>
+                        </div>
+                        <div *ngIf="content.image_left" class="main__article-cover--left">
+                            <img [src]="baseUrl + '/images/' + content.image_left" alt="">
+                        </div>
+
+                    </div>
+                    <div *ngIf="content?.title_center || content?.text_center || content?.image_center"
+                        class="main__article-box--center">
+                        <div *ngIf="content.title_center" class="main__article-subtitle--center">
+                            <h2 class="main__content-subtitle--center">{{content.title_center}}</h2>
+                        </div>
+                        <div *ngIf="content.text_center" class="main__article-text--center">
+                            <p [innerHTML]="content.text_center"></p>
+                        </div>
+                        <div *ngIf="content.image_center" class="main__article-cover--center">
+                            <img [src]="baseUrl + '/images/' + content.image_center" alt="">
+
+                        </div>
+
+                    </div>
+
+                    <div *ngIf="content?.title_right || content?.text_right || content?.image_right"
+                        class="main__article-box--right">
+
+                        <div *ngIf="content.title_right" class="main__article-subtitle--right">
+                            <h2 class="main__content-subtitle--left">{{content.title_right}}</h2>
+                        </div>
+                        <div *ngIf="content.text_right" class="main__article-text--right">
+                            <p [innerHTML]="content.text_right"></p>
+                        </div>
+                        <div *ngIf="content.image_right" class="main__article-cover--right">
+                            <img [src]="baseUrl + '/images/' + content.image_right" alt="">
+                        </div>
+                    </div>
+                    <div class="main__article-cover">
+                    </div>
+                </section>
+            </main>
+        </div>
+
+
+
+        <!-- Questions form -->
+
+
+        <div *ngIf="wholeArticle && isQuestionsForm" class="article-questions__wrapper">
+            <header class="header-questions__wrapper">
+
+                <div class="header-questions__article-title">
+                    <h1>Evaluation des compétences</h1>
+                </div>
+
+                <div class="header-questions__article-bloc--wrapper">
+                    <div class="header-questions__article-bloc--center">
+                        <div class="header-questions__article-description">
+                            <p>
+                                Et voilà, tu as maintenant terminé ce cours : un grand bravo à toi ! Tu as hâte de t' attaquer aux choses sérieuses ? J’en suis sûr ! Mais avant de plonger dans le monde merveilleux de l'assembleur 68000, passe le quiz afin d'obtenir ton certificat de fin de formation !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <section class="main-questions__content--wrapper">
+                    <div class="main-questions__article-box--center">
+                        <form id="main-form" (ngSubmit)="submitForm($event)" #form="ngForm">
+                            <ul>
+                                <li *ngFor="let item of htmlForm; let i = index">
+                                    <div id="question-{{item.question.id_question}}" class="main-questions__article-subtitle--center">
+                                        <h2 class="main-questions__content-subtitle--center">{{item.question.text}}</h2>
+                                    </div>
+                                    <div class="main-questions__article-text--center">
+                                        <ul>
+                                            <li *ngFor="let choice of item.choices; let j = index">
+                                                <input type="checkbox" [(ngModel)]="choice.selected" [name]="'question' + i + 'choice' + j" [id]="'answer' + choice.id_choice" [value]="choice.id_choice" required>
+                                                <label [for]="'answer' + choice.id_choice">{{choice.choice_text}}</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <button type="submit" id="submit-button" class="submit-button">Envoyer</button>
+                        </form>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isLoading" class="mask"></div>
+<div *ngIf="isLoading" class="spinner"></div>
+
+
+<app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>

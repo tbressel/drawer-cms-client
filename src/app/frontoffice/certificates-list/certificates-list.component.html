@@ -1,0 +1,36 @@
+<app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>
+
+
+<div *ngIf="!isNotificationWindow" class="certificate-cards-list__wrapper" [ngClass]="{'hidden' : !isWindowOpen}">
+
+
+    <div class="certificate-cards-list__header">
+
+        <div class="certificate-cards-list__top">
+
+            <div class="certificate-cards-list__caseleft" (click)="closeWindow()">
+
+            </div>
+            <div class="certificate-cards-list__casetitle">
+                <p>
+                    {{title}}
+                </p>
+            </div>
+            <div class="certificate-cards-list__caseright" (click)="toggleWindow()">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="certificate-cards-list__bot">
+        <div class="certificate-cards-list__state-bar">Nombre de certificats : {{ dataCertificates.length }}</div>
+    </div>
+
+    <div class="certificate-cards-list__content" [ngClass]="{'hidden' : isWindowToggled}">
+        @for (certification of dataCertificates; track certification) {
+        <app-certifi-card class="certificate-cards-list__item"[certification]="certification"></app-certifi-card>
+        }
+
+    </div>
+
+</div>

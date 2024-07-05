@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { InformationsComponent } from './frontoffice/informations/informations.component';
 import { NewsComponent } from './frontoffice/news/news.component';
 import { CodingComponent } from './frontoffice/coding/coding.component';
-import { CertificatsComponent } from './frontoffice/certificats/certificats.component';
+import { CertificatesComponent } from './frontoffice/certificates/certificates.component';
 import { DocumentationComponent } from './frontoffice/documentation/documentation.component';
 import { HomeComponent } from './frontoffice/home/home.component';
 import { LoginComponent } from './frontoffice/login/login.component';
 import { SigninComponent } from './frontoffice/signin/signin.component';
 import { LogoutComponent } from './frontoffice/logout/logout.component';
-
+import { ViewArticleComponent } from './frontoffice/view-article/view-article.component';
+import { PermissionsService } from './services/permissions.service';
 
 
 
@@ -22,11 +23,12 @@ export const routes: Routes = [
     { path: 'informations', component: InformationsComponent },
     { path: 'news', component: NewsComponent },
     { path: 'coding', component: CodingComponent },
-    { path: 'certificats', component: CertificatsComponent },
+    { path: 'certificates', component: CertificatesComponent},
     { path: 'documentation', component: DocumentationComponent },
     { path: 'login', component: LoginComponent },
     { path: 'signin', component: SigninComponent },
-    { path: 'logout', component: LogoutComponent }
+    { path: 'logout', component: LogoutComponent },
+    { path: 'article-content/:id/:page', component: ViewArticleComponent },
 ];
 
 
