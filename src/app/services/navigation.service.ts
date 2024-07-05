@@ -2,13 +2,11 @@
 ////////////////////  IMPORTATIONS   //////////////////
 ///////////////////////////////////////////////////////
 
-// Modules
+// Angular importations
 import { HttpClient } from '@angular/common/http';
-
-// Decorator
 import { Injectable } from '@angular/core';
 
-// Type model for async data
+// rxjs importations
 import { Observable, of, BehaviorSubject } from 'rxjs';
 
 // Model
@@ -27,7 +25,7 @@ import { CONFIG } from '../../config';
 export class NavigationService {
 
 
-  // État par défaut pour le menu de droite
+  // Right menu default states
   private defaultMenuRightStates: MenuRightStates = {
     isLogin: true,
     isSignin: true,
@@ -35,25 +33,42 @@ export class NavigationService {
     isAdmin: false
   };
 
+  // Emit the menu right new states
   private menuRightStatesSubject = new BehaviorSubject<MenuRightStates>(this.defaultMenuRightStates);
   menuRightStates$ = this.menuRightStatesSubject.asObservable();
 
-  // Constructor to inject the HttpClient
+  // Constructor
   constructor(private http: HttpClient) {}
 
+
+/**
+ * 
+ * Method to get the navigation items
+ * 
+ * @returns 
+ */
   getNavigationItems(): Observable<NavigationModel[]> {
     return this.http.get<NavigationModel[]>(`${CONFIG.baseUrl}/navigation/get-menu-items`);
   }
 
+  /**
+   * 
+   * Method to get the menu right states
+   * 
+   * @returns 
+   */
   getMenuRightStates(): Observable<MenuRightStates> {
-    // Retourne les états par défaut pour cet exemple
     return of(this.defaultMenuRightStates);
   }
 
+  /**
+   * 
+   * Method to update the menu right states
+   * 
+   * @param newStates 
+   */
   updateMenuRightStates(newStates: MenuRightStates): void {
-    console.log('Updating Menu Right States:', newStates); // Log avant mise à jour
     this.menuRightStatesSubject.next(newStates);
-    console.log('Menu Right States Subject Value:', this.menuRightStatesSubject.getValue()); // Log après mise à jour
   }
 
 }

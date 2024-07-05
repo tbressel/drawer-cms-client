@@ -3,14 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { InformationsComponent } from './informations/informations.component';
-import { NewsComponent } from './news/news.component';
-import { CodingComponent } from './coding/coding.component';
-import { CertificatsComponent } from './certificats/certificats.component';
-import { DocumentationComponent } from './documentation/documentation.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { SigninComponent } from './signin/signin.component';
+import { InformationsComponent } from './frontoffice/informations/informations.component';
+import { NewsComponent } from './frontoffice/news/news.component';
+import { CodingComponent } from './frontoffice/coding/coding.component';
+import { CertificatsComponent } from './frontoffice/certificats/certificats.component';
+import { DocumentationComponent } from './frontoffice/documentation/documentation.component';
+import { HomeComponent } from './frontoffice/home/home.component';
+import { LoginComponent } from './frontoffice/login/login.component';
+import { SigninComponent } from './frontoffice/signin/signin.component';
+import { LogoutComponent } from './frontoffice/logout/logout.component';
 
 
 
@@ -24,7 +25,8 @@ export const routes: Routes = [
     { path: 'certificats', component: CertificatsComponent },
     { path: 'documentation', component: DocumentationComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'signin', component: SigninComponent }
+    { path: 'signin', component: SigninComponent },
+    { path: 'logout', component: LogoutComponent }
 ];
 
 

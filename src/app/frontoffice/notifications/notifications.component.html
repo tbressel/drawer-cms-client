@@ -8,6 +8,11 @@
                             {{notificationMessage}}
                         </p>
                     </div>
+
+                    <div *ngIf="isChoiceButtons">
+                        <button (click)="onChoice(true)">Confirmer</button>
+                        <button (click)="onChoice(false)">Annuler</button>
+                      </div>
                 </div>
             </div>
         </div>

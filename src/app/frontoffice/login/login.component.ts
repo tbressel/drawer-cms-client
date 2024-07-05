@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RegistrationService } from '../services/registration.service';
-import { NavigationService } from '../services/navigation.service';
-import { NotificationsComponent } from '../notifications/notifications.component';
-import { NotificationsService } from '../services/notifications.service';
+import { RegistrationService } from '../../services/registration.service';
+import { NavigationService } from '../../services/navigation.service';
+import { NotificationsComponent } from '../../frontoffice/notifications/notifications.component';
+import { NotificationsService } from '../../services/notifications.service';
 import { switchMap, tap, catchError, finalize } from 'rxjs/operators';
 import { of } from 'rxjs';
 
@@ -23,7 +23,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string | null = null;
 
-  isNotificationWindow = false;
+  isNotificationWindow: Boolean = false;
   notificationMessage: string = '';
 
   isLoading: Boolean = false;
@@ -66,17 +66,21 @@ export class LoginComponent {
           }
         }),
         tap((isAdminData: any) => {
-
-          console.log('isAdminData', isAdminData);
           // Update the menu state with the value of isAdmin
           this.updateMenuState(isAdminData.state);
+
+          if (isAdminData.state) {
+            // Display success notification and navigate to the admin page
+            this.notificationsService.displayNotification(this, 'login-success', 2000, '/admin', 'client', false);
+          } else {
           // Display success notification and navigate to the home page
-          this.displayNotification('Successfully logged in', 2000, '/accueil', 'client');
+          this.notificationsService.displayNotification(this, 'login-success', 2000, '/accueil', 'client', false);
+          }
         }),
         catchError((error: any) => {
           const message = error.error?.message || 'An error occurred';
           // Display error notification
-          this.displayNotification(message, 2000, null, 'server');
+          this.notificationsService.displayNotification(this, message, 2000, null, 'server', false);
           return of(null); // Return a safe fallback
         }),
         finalize(() => {
@@ -95,8 +99,6 @@ export class LoginComponent {
    */
   private updateMenuState(isAdmin: boolean): void {
 
-    console.log('isAdmin', isAdmin);
-
     // define the news states of the menu
     const menuStates: any = {
       isLogin: false,
@@ -110,34 +112,5 @@ export class LoginComponent {
   }
 
 
-/**
- * 
- * @param display set to true to display the message
- * @param key the key of the message to show
- * @param timer  duration of the message
- * @param redirect choose or not to redirect to a page '/accueil' for example or null
- * @param origin  if it is from the 'client' or the 'server'
- */
-  displayNotification(key: string, timer: number = 0, redirect: string | null, origin: string) {
-
-    // Most of time set to true to display the notification
-    this.isNotificationWindow = true;
-
-    if (origin === 'client' || origin === undefined) {
-      this.notificationMessage = this.notificationsService.getNotificationMessage(key);
-    } else if (origin === 'server') {
-      this.notificationMessage = key;
-    }
-
-    if (timer > 0) {
-      setTimeout(() => {
-        this.isNotificationWindow = false;
-
-        if (redirect !== null) {
-          this.router.navigate([redirect]);
-        }
-      }, timer);
-    }
-  }
 }
 

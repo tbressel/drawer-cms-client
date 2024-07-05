@@ -4,11 +4,11 @@ import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 // Services imports
-import { NavigationService } from '../services/navigation.service';
-import { RegistrationService } from '../services/registration.service';
+import { NavigationService } from '../../services/navigation.service';
+import { RegistrationService } from '../../services/registration.service';
 
 //Models imports
-import { NavigationModel, MenuRightStates } from '../models/navigation.model';
+import { NavigationModel, MenuRightStates } from '../../models/navigation.model';
 
 // Components imports
 import { NotificationsComponent } from '../notifications/notifications.component';
@@ -43,6 +43,11 @@ export class NavigationComponent implements OnInit {
     this.loadNavigationItems();
     this.initializeMenuRightStates();
     this.checkAdminStatus();
+    // Subscribe to menuRightStates updates
+    this.navigationService.menuRightStates$.subscribe(states => {
+      this.menuRightStates = states;
+      console.log('Updated menuRightStates:', this.menuRightStates);
+    });
   }
 
 

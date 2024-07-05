@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NotificationsComponent } from '../notifications/notifications.component';
-import { NotificationsService } from '../services/notifications.service';
-import { RegistrationService } from '../services/registration.service';
+import { NotificationsService } from '../../services/notifications.service';
+import { RegistrationService } from '../../services/registration.service';
 
 @Component({
   selector: 'app-signin',
@@ -106,7 +106,7 @@ export class SigninComponent {
       this.registrationService.signin(username, password, email).subscribe({
         next: (data: any) => {
           this.isLoading = false;
-          this.displayNotification('signin-success', 4000, '/login', 'client');
+          this.notificationsService.displayNotification(this, 'signin-success', 4000, '/login', 'client', false);
         },
         error: (error) => {
           const message: string = error.error.message;
@@ -114,7 +114,7 @@ export class SigninComponent {
           this.isLoading = false;
 
           // Display a notification with the error message
-          this.displayNotification(message, 4000, '/login', 'server');
+          this.notificationsService.displayNotification(this, message, 4000, '/login', 'server', false);
 
           // Reset the form
           this.signinForm.reset();
@@ -126,33 +126,4 @@ export class SigninComponent {
   }
 
 
-  /**
-   * 
-   * @param display set to true to display the message
-   * @param key the key of the message to show
-   * @param timer  duration of the message
-   * @param redirect choose or not to redirect to a page '/accueil' for example or null
-   * @param origin  if it is from the 'client' or the 'server'
-   */
-  displayNotification(key: string, timer: number = 0, redirect: string | null, origin: string) {
-
-    // Most of time set to true to display the notification
-    this.isNotificationWindow = true;
-
-    if (origin === 'client' || origin === undefined) {
-      this.notificationMessage = this.notificationsService.getNotificationMessage(key);
-    } else if (origin === 'server') {
-      this.notificationMessage = key;
-    }
-
-    if (timer > 0) {
-      setTimeout(() => {
-        this.isNotificationWindow = false;
-
-        if (redirect !== null) {
-          this.router.navigate([redirect]);
-        }
-      }, timer);
-    }
-  }
 }
