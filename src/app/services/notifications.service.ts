@@ -23,6 +23,8 @@ export class NotificationsService {
       'login-success': 'Connexion réussie',
       'is-logout': 'Souhaitez-vous vous déconnecter ?',
       'logout-success': 'Déconnexion réussie',
+      'login-need': 'Vous devez être connecté pour accéder à cette page',
+     
     }
 
   // Constructor

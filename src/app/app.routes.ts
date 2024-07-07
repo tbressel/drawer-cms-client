@@ -14,7 +14,7 @@ import { SigninComponent } from './frontoffice/signin/signin.component';
 import { LogoutComponent } from './frontoffice/logout/logout.component';
 import { ViewArticleComponent } from './frontoffice/view-article/view-article.component';
 import { PermissionsService } from './services/permissions.service';
-
+import { ViewCertificateComponent } from './frontoffice/view-certificate/view-certificate.component';
 
 
 export const routes: Routes = [
@@ -24,6 +24,7 @@ export const routes: Routes = [
     { path: 'news', component: NewsComponent },
     { path: 'coding', component: CodingComponent },
     { path: 'certificates', component: CertificatesComponent},
+    { path: 'certificate/:id', component: ViewCertificateComponent },
     { path: 'documentation', component: DocumentationComponent },
     { path: 'login', component: LoginComponent },
     { path: 'signin', component: SigninComponent },

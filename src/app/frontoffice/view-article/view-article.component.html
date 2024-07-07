@@ -1,3 +1,7 @@
+<div *ngIf="isLoading" class="mask"></div>
+<div *ngIf="isLoading" class="spinner"></div>
+
+
 
 <div class="article-window__wrapper" [ngClass]="{'hidden' : !isWindowOpen}">
     <div class="article-window__header">
@@ -158,8 +162,7 @@
     </div>
 </div>
 
-<div *ngIf="isLoading" class="mask"></div>
-<div *ngIf="isLoading" class="spinner"></div>
+
 
 
 <app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>

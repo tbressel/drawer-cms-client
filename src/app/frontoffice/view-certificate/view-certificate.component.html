@@ -1,0 +1,87 @@
+<div *ngIf="isLoading" class="mask"></div>
+<div *ngIf="isLoading" class="spinner"></div>
+
+<app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>
+
+
+
+<div class="button">   
+    <button (click)="downloadPDF()">Télécharger le PDF</button>
+</div>
+
+
+<div  #certificateElement class="certificate" class="certificate__wrapper">
+
+
+
+    <div class="certificate__border_1">
+        <div class="certificate__border_2">
+            <div class="certificate__border_3">
+                <div class="certificate__border_4">
+                    
+
+                    <header class="certificate__header">
+
+                        <h1 class="certificate__title">
+                            <p>
+                                CERTIFICAT DE RÉUSSITE
+                            </p>
+                        </h1>
+                        <h2 class="certificate__school">
+                            <p>
+                                ASMTARISTE
+                            </p>
+                        </h2>
+                    </header>
+
+                    <main class="certificate__main">
+                        <p class="certificate__p">
+
+                            atteste que
+                        </p>
+
+                        <h3 class="certificate__student">
+                            <p>
+                                {{username}}
+                            </p>
+                        </h3>
+
+                        <p class="certificate__p">
+                            a validé et obtenu le certificat de :
+                        </p>
+
+                        <h4 class="certificate__lesson">
+                            <p>
+                                "{{title}}"
+                            </p>
+                        </h4>
+
+                        <p class="certificate__date">
+                            Fait à Caen, le <time>{{date | date: 'mediumDate'}}</time>
+                        </p>
+                    </main>
+                    <footer class="certificate__footer">
+
+                        <p class="certificate__signature">
+                            <img src="assets/img/signature.png" alt="Signature">
+                        </p>
+                        <div>
+
+                        </div>
+                        <p class="certificate__author">
+                            Zisquier
+                        </p>
+                        <p class="certificate__author-role">
+                            Fondateur de ASMtariSTe
+                        </p>
+                    </footer>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

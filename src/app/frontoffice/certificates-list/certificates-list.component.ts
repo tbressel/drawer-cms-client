@@ -3,7 +3,7 @@
 ////////////////////  IMPORTATIONS   //////////////////
 ///////////////////////////////////////////////////////
 
-import { Component, OnInit, Input, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Input, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -49,11 +49,14 @@ isWindowToggled = false;
 isNotificationWindow = false;
 notificationMessage: string = '';
 
+isLoading: Boolean = false;
+
 
 
 // Constructor
 constructor ( private certificateService: CertificateService,
               private router: Router,
+              private detector: ChangeDetectorRef,
               private notificationServices: NotificationsService,
               @Inject(PLATFORM_ID) private platformId: Object) {}  
 
@@ -64,63 +67,31 @@ constructor ( private certificateService: CertificateService,
  * Method used to fetch the data menu. Initialized after the creation of the component
  */              
 ngOnInit(): void {
-
-
   // Local storage access only if the platform is the browser (not the server)
   if (isPlatformBrowser(this.platformId)) {
     this.token = localStorage.getItem('token');
   }
+  
   if (!this.token) {
-    this.showNotification(true, 'access-failure', 3000, '/accueil');
+    this.notificationServices.displayNotification(this, 'login-need', 3000, '/accueil', 'client', false);
     return;
   }
-
+  this.isLoading = true;
 
   this.certificateService.getCertificates(this.token).subscribe({
     next: (data: any) => {
       this.dataCertificates = data.body;
+      this.isLoading = false;
+      this.detector.detectChanges();
     },
-    error: (error) => {
-      error = error.error.message;
-
-      this.showNotification(true, error, 3000, '/login', 'server');
+    error: (error: any) => {
+      this.isLoading = false;
+      this.detector.detectChanges();
+      const message: string = error.error.message;
+      this.notificationServices.displayNotification(this, message, 3000, '/login', 'server', false);
     }
   });
 }
-
-
-  /**
-  * 
-  * Methode to show a notification
-  * 
-  * @param display active or not the notification selected by ngIf in html
-  * @param type could be a key or a message
-  * @param timer duration when the notification is displayed
-  * @param redirect route to redirect after the notification is displayed
-  * @param origin values to define witch type of error is displayed 'client'(key) or 'server'(value) 
-  */
-  showNotification(display: boolean, type: string, timer: number = 0, redirect?: string, origin?: string) {
-
-    // Most of time set to true to display the notification
-    this.isNotificationWindow = display;
-
-    if (origin === 'client' || origin === undefined) {
-      this.notificationMessage = this.notificationServices.getNotificationMessage(type);
-    } else if (origin === 'server') {
-      this.notificationMessage = type;
-    }
-
-    if (display && timer > 0) {
-      setTimeout(() => {
-        this.isNotificationWindow = false;
-
-        if (redirect !== undefined) {
-          this.router.navigate([redirect]);
-        }
-      }, timer);
-    }
-  }
-
 
 
 /**

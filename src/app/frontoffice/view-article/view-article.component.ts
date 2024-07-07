@@ -249,7 +249,8 @@ transformData(data: any[]): QuestionsForm[] {
       error: (error) => {
         const message: string = error.error.message;
         // Display a notification with the error message
-        this.notificationServices.displayNotification(this, message, 2000, null, 'server', false);
+  
+        this.notificationServices.displayNotification(this, message, 200000, null, 'server', false);
 
         this.isLoading = false;
       }
