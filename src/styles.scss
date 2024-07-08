@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+// Reseting style for all browser default params
+@import './styles/reset.scss';
+
+// Define palette
+@import './styles/colors.scss';
+
+// Setting fonts
+@import './styles/fonts.scss';
+
+
+
+* {
+    width: 100%;
+    font-weight: 400;
+    font-family: 'AntiqueOlive';
+    
+}
+
+body {
+    overflow-wrap: anywhere;
+    
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+}

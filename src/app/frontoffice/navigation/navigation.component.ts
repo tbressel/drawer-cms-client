@@ -28,6 +28,8 @@ export class NavigationComponent implements OnInit {
   leftMenuItems: NavigationModel[] = [];
   menuRightStates: MenuRightStates = new MenuRightStates();
 
+  navigationOverlay: boolean = false;
+
   // Constructeur
   constructor(
     private navigationService: NavigationService,
@@ -102,5 +104,16 @@ export class NavigationComponent implements OnInit {
       }
     });
   }
+  
 
+
+  closeOverlay(): void {
+    this.navigationOverlay = false;
+
+  }
+
+  openOverlay(): void {
+    this.navigationOverlay = true;
+
+  }
 }
