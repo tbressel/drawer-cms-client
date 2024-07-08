@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FacebookComponent } from './facebook.component';
+import { SideBarComponent } from './side-bar.component';
 
-describe('FacebookComponent', () => {
-  let component: FacebookComponent;
-  let fixture: ComponentFixture<FacebookComponent>;
+describe('SideBarComponent', () => {
+  let component: SideBarComponent;
+  let fixture: ComponentFixture<SideBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FacebookComponent]
+      imports: [SideBarComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FacebookComponent);
+    fixture = TestBed.createComponent(SideBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
