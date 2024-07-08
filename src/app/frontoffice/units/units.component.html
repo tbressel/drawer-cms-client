@@ -2,18 +2,16 @@
 <div *ngIf="isLoading" class="spinner"></div>
 
 <div class="unit-disks-list__wrapper">
-<div class="unit-disks-list__title">
-    <h2>
-        Folder & Files
-    </h2>
-</div>
-<div class="unit-disks-list__folder">
+    <div class="unit-disks-list__title">
+        <h2>Folder & Files</h2>
+    </div>
+    <div class="unit-disks-list__folder">
 
-    <ng-container *ngFor="let diskUnit of dataInterface">
-        <app-unit class="unit-disks-list__container" [diskUnit]="diskUnit">
-        </app-unit>
-    </ng-container>
-</div>
+        <ng-container *ngFor="let diskUnit of dataInterface">
+            <app-unit class="unit-disks-list__container" [diskUnit]="diskUnit">
+            </app-unit>
+        </ng-container>
+    </div>
 </div>
 
 

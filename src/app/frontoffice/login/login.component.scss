@@ -1,45 +1,73 @@
+@import '../../../styles/settings.scss';
+
+.login__wrapper {
+  position: relative;
+  padding: 20px 10px;
+  box-sizing: border-box;
+
+  .login__title {
+    text-align: left;
+    padding: 5px 0;
+
+    h2 {
+      color: #d25a24;
+      text-transform: uppercase;
+      box-sizing: border-box;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 15px;
+      background: linear-gradient(45deg, #cdcdcd70, transparent);
+      box-shadow: #0000003d 5px 5px 5px 1px;
+    }
+  }
 
 
-.login-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  .error {
-    color: red;
-    margin-top: 1rem;
-  }
-  
 
+  .login__container {
 
-  .mask {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.336);
-    width: 100vw;
-    height: 100vh;
-    z-index: 10;
-  }
-  .spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #3498db;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-  }
-    
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    box-sizing: border-box;
+
+    .login__form-group {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+
+      .login__username-container,
+      .login__password-container {
+        display: flex;
+        align-items: center;
+
+        .login__form-control {
+          padding: 0.75rem;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 1rem;
+        }
+
+        .login__toggle-password {
+          background: none;
+          border: none;
+          cursor: pointer;
+
+          i {
+            color: #333;
+          }
+        }
       }
+
+    }
+  }
+}
+
+
+
+.login__error {
+  color: #d9534f;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+

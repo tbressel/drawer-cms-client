@@ -28,6 +28,8 @@ export class LoginComponent {
 
   isLoading: Boolean = false;
 
+  showPassword: Boolean = false;
+
   // Constructor
   constructor(
     private formBuilder: FormBuilder,
@@ -111,6 +113,10 @@ export class LoginComponent {
     this.navigationService.updateMenuRightStates(menuStates);
   }
 
+
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
+  }
 
 }
 
