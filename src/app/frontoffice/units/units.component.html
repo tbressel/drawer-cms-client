@@ -3,7 +3,7 @@
 
 <div class="unit-disks-list__wrapper">
     <ng-container *ngFor="let diskUnit of dataInterface">
-        <app-unit [diskUnit]="diskUnit">
+        <app-unit class="unit-disks-list__container" [diskUnit]="diskUnit">
         </app-unit>
     </ng-container>
 </div>

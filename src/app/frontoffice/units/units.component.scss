@@ -1,3 +1,24 @@
+@import '../../../styles/settings.scss';
+
+
+
+.unit-disks-list__wrapper {
+  position: relative;
+  display: flex;
+  overflow-x: scroll;
+  justify-content: space-between;
+  padding: 20px 10px;
+  gap: calc($unit-icon-width - 20px);
+  box-sizing: border-box;
+
+  .unit-disks-list__container {
+    text-align: left;
+    width: calc($unit-icon-width + 10px);
+  }
+
+}
+
+
 .spinner {
     position: absolute;
     top: 50%;

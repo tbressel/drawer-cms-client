@@ -13,7 +13,9 @@
     </div>
     <div class="unit-files-list__bot">
         <div *ngIf="dataFiles &&  dataFiles.length > 0" class="unit-files-list__state-bar">
-            nombre de fichier : {{dataFiles.length}}
+            <p>
+                nombre de fichier : {{dataFiles.length}}
+            </p>
             <div class="unit-files-list__content" [ngClass]="{'hidden' : isContentToggled}">
                 <ul>
                     <li *ngFor="let file of dataFiles">

@@ -1,3 +1,62 @@
+@import '../../../styles/settings.scss';
+
+
+.unit-files-list__wrapper {
+    width: 100vw;
+    display: block;
+    position: relative;
+
+    .unit-files-list__header {
+      .unit-files-list__caseleft {
+
+      }
+      
+      .unit-files-list__casetitle {
+        display: $files-title-display;
+      }
+
+      .unit-files-list__caseright {
+
+      }
+
+    }
+
+    .unit-files-list__bot {
+      .unit-files-list__state-bar {
+        p {
+
+           display: $files-title-display;
+        }
+        .unit-files-list__content {
+          ul {
+            width: fit-content;
+            border: 1px dotted black;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: $white;
+            li {
+              padding: 5px 0;
+              font-size: $files-name-size;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+.unit-files-list__state-bar {
+  display: $files-state-display;
+
+}
+
+
+
+
+
+
+
 .spinner {
     position: absolute;
     top: 50%;

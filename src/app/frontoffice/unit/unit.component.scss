@@ -1,0 +1,37 @@
+@import '../../../styles/settings.scss';
+
+
+
+.unit-disk__wrapper {
+    width: $unit-icon-width;
+    max-width: calc($unit-icon-width  + 20px);
+
+    .unit-letter__wrapper {
+        display: $unit-letter-display;
+        .unit-letter__content {
+
+        }
+    }
+
+    .unit-icon__wrapper {
+        .unit-icon__white {
+            display: $unit-icon0-display;
+            width: $unit-icon-width;
+
+        }
+
+        .unit-icon__black {
+            display: $unit-icon1-display;
+            width: $unit-icon-width;
+
+        }
+
+    }
+        .unit-name__wrapper {
+            margin-top: 10px;
+            .unit-name__content {
+                font-size: $unit-name-size;
+                color: $unit-name-color;
+            }
+        }
+}
