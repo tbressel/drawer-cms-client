@@ -1,60 +1,85 @@
 <div *ngIf="isLoading" class="mask"></div>
 <div *ngIf="isLoading" class="spinner"></div>
 
+<div class="signin__wrapper">
 
-<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="username">Username</label>
-      <input id="username" formControlName="username" type="text" />
-      <div *ngIf="signinForm.get('username')?.invalid && (signinForm.get('username')?.touched || signinForm.get('username')?.dirty)">
-        <small *ngIf="signinForm.get('username')?.errors?.['required']">Username is required</small>
-        <small *ngIf="signinForm.get('username')?.errors?.['minlength']">Username must be at least 8 characters long</small>
-        <small *ngIf="signinForm.get('username')?.errors?.['pattern']">Username can only contain alphanumeric characters</small>
-      </div>
-    </div>
-  
-    <div>
-      <label for="email">Email</label>
-      <input id="email" formControlName="email" type="email" />
-      <div *ngIf="signinForm.get('email')?.invalid && (signinForm.get('email')?.touched || signinForm.get('email')?.dirty)">
-        <small *ngIf="signinForm.get('email')?.errors?.['required']">Email is required</small>
-        <small *ngIf="signinForm.get('email')?.errors?.['email']">Invalid email format</small>
-      </div>
-    </div>
-  
-    <div>
-      <label for="password">Password</label>
-      <input id="password" [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
-      <button type="button" (click)="togglePasswordVisibility()">👁️</button>
-      <div *ngIf="signinForm.get('password')?.invalid && (signinForm.get('password')?.touched || signinForm.get('password')?.dirty)">
-        <small *ngIf="signinForm.get('password')?.errors?.['required']">Password is required</small>
-        <small *ngIf="signinForm.get('password')?.errors?.['weakPassword']">Password is too weak</small>
-      </div>
-    </div>
-  
-    <div>
-      <label for="passwordCheck">Confirm Password</label>
-      <input id="passwordCheck" [type]="hidePasswordCheck ? 'password' : 'text'" formControlName="passwordCheck" />
-      <button type="button" (click)="togglePasswordCheckVisibility()">👁️</button>
-      <div *ngIf="signinForm.get('passwordCheck')?.invalid && (signinForm.get('passwordCheck')?.touched || signinForm.get('passwordCheck')?.dirty)">
-        <small *ngIf="signinForm.get('passwordCheck')?.errors?.['required']">Please confirm your password</small>
-        <small *ngIf="signinForm.get('passwordCheck')?.errors?.['mismatch']">Passwords do not match</small>
-      </div>
-    </div>
-  
-    <button type="submit" [disabled]="signinForm.invalid">Sign In</button>
-  </form>
-  
-  <div *ngIf="signinForm.get('password')?.touched">
-    <p>Password Strength:</p>
-    <div [ngClass]="{
-      'weak': passwordStrength === 'weak',
-      'medium': passwordStrength === 'medium',
-      'strong': passwordStrength === 'strong'
-    }">
-      {{ passwordStrength | uppercase }}
-    </div>
+  <div class="signin__title">
+    <h2>S'inscrire</h2>
   </div>
-  
 
-  <app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>
+  <div class="signin__container">
+    <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+
+      <div class="signin__form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <div class="signin__username-container">
+          <input id="username" formControlName="username" type="text" class="signin__form-control" />
+          <div
+            *ngIf="signinForm.get('username')?.invalid && (signinForm.get('username')?.touched || signinForm.get('username')?.dirty)">
+            <small class="signin__error" *ngIf="signinForm.get('username')?.errors?.['required']">Le nom d'utilisateur est obligatoire</small>
+            <small class="signin__error" *ngIf="signinForm.get('username')?.errors?.['minlength']">Le nom d'utilisateur doit faire minimum 8
+              caractères</small>
+            <small class="signin__error" *ngIf="signinForm.get('username')?.errors?.['pattern']">Le nom d'utilisateur doit contenir des
+              charactères alphanumériques.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="signin__form-group">
+        <label for="email">Email</label>
+        <div class="signin__email-container">
+          <input id="email" formControlName="email" type="email" class="signin__form-control"  />
+          <div
+            *ngIf="signinForm.get('email')?.invalid && (signinForm.get('email')?.touched || signinForm.get('email')?.dirty)">
+            <small class="signin__error" *ngIf="signinForm.get('email')?.errors?.['required']">L' email est obligatoire.</small>
+            <small class="signin__error" *ngIf="signinForm.get('email')?.errors?.['email']">L' email n'est pas au bon format.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="signin__form-group">
+        <label for="password">Password</label>
+        <div class="signin__password-container">
+          <input id="password" [type]="hidePassword ? 'password' : 'text'" formControlName="password" class="signin__form-control"  />
+          <button type="button"  class="signin__toggle-password" (click)="togglePasswordVisibility()">👁️</button>
+          <div
+            *ngIf="signinForm.get('password')?.invalid && (signinForm.get('password')?.touched || signinForm.get('password')?.dirty)">
+            <small class="signin__error" *ngIf="signinForm.get('password')?.errors?.['required']">Le mot de passe est obligatoire.</small>
+            <small class="signin__error" *ngIf="signinForm.get('password')?.errors?.['weakPassword']">Le mot de passe doit contenir au moins 8 charactères dont : 1 majuscule, 1 minuscule, 1 chiffre de 0 à 9 et un caractère spécial (comme - + * $ # )</small>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="signin__form-group">
+        <label for="passwordCheck">Confirm Password</label>
+        <div class="signin__password-container">
+          <input id="passwordCheck" [type]="hidePasswordCheck ? 'password' : 'text'" formControlName="passwordCheck" class="signin__form-control" />
+          <button type="button"  class="signin__toggle-password" (click)="togglePasswordCheckVisibility()">👁️</button>
+          <div
+            *ngIf="signinForm.get('passwordCheck')?.invalid && (signinForm.get('passwordCheck')?.touched || signinForm.get('passwordCheck')?.dirty)">
+            <small class="signin__error" *ngIf="signinForm.get('passwordCheck')?.errors?.['required']">Please confirm your password</small>
+            <small class="signin__error" *ngIf="signinForm.get('passwordCheck')?.errors?.['mismatch']">Passwords do not match</small>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="signinForm.invalid" class="btn btn-primary">Valider</button>
+    </form>
+  </div>
+</div>
+
+
+<div *ngIf="signinForm.get('password')?.touched">
+  <p>Le mot de passe est :</p>
+  <div [ngClass]="{
+      'trop faible': passwordStrength === 'trop faible',
+      'pas assez fort': passwordStrength === 'pas assez fort',
+      'très fort': passwordStrength === 'fort'
+    }">
+    {{ passwordStrength | uppercase }}
+  </div>
+</div>
+
+
+<app-notifications *ngIf="isNotificationWindow" [notificationMessage]="notificationMessage"></app-notifications>

@@ -1,0 +1,119 @@
+@import '../../../styles/settings.scss';
+
+section {
+       display: flex;
+       align-items: center;
+       unicode-bidi: isolate;
+
+       .timeline__icon {
+           background-color: $black;
+           border-radius: 50%;
+           padding: 10px;
+
+           &:hover {
+               cursor: pointer;
+               background: $black;
+           }
+       }
+
+       nav {
+           display: block;
+           unicode-bidi: isolate;
+
+           .timeline__inner {
+               display: flex;
+
+               .timeline__steps {
+                   display: table;
+                   table-layout: fixed;
+                   width: 100%;
+                   padding: 8px 0;
+                   position: relative;
+               
+               }
+
+            .timeline__steps.active {
+                position: relative; 
+               
+                &::after {
+                    content: url('../../../assets/img/icons/timeline-step.svg');
+                    width: 40px;;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    display: block;
+                  
+                }
+            }
+
+                       .timeline__step {
+                           display: table-cell;
+                           height: 18px;
+                           width: 100%;
+                           font-size: 12px;
+                           background: $grey2;
+                           cursor: pointer;
+                           border-bottom: 3px solid rgba(0, 0, 0, .25);
+                           text-decoration: none;
+                       }
+                           .timeline__step::after {
+                               content: ' ';
+                               border-left: 4px solid white;
+                               height: 18px;
+                               position: absolute;
+                               top: 8px;
+                           }
+
+                           .timeline__step:hover:hover {
+                               background: $black;
+                           }
+
+                           .timeline__step.visited__steps {
+                               background: $orange;
+                               color: #fff;
+                           }
+
+                           .timeline__stepName {
+                               color: #7451eb;
+                            visibility: hidden;
+                               display: inline-block;
+                               top: -16px;
+                               position: relative;
+                               left: 0;
+                               right: 0;
+                               text-align: center;
+
+                            }   
+                            .timeline__stepName:hover {
+                                visibility: visible;
+                            }
+                       }
+                  
+
+               }
+           }
+
+.timeline__chapter-button {
+margin: 40px 0;
+text-align: center;
+    
+    
+
+
+    button {
+        
+    font-size: 1rem;
+    background: $white;
+    color: $black;
+    border: 4px solid $black;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    
+    &:hover {
+        color: $white;
+        background: $black;
+    }
+}
+}
