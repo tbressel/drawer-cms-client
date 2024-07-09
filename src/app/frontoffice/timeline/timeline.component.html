@@ -21,6 +21,6 @@
 
 <div class="timeline__chapter-button" *ngIf="(wholeArticle[0]?.page <= wholeArticle[0]?.max_page)">
     <form (submit)="goToNextChapter(wholeArticle[0]?.id_articles, wholeArticle[0]?.page, wholeArticle[0]?.max_page); $event.preventDefault()">
-        <button type="submit">J'ai terminé ce chapitre je passe au suivant</button>
+        <button class="btn btn-primary" type="submit">J'ai terminé ce chapitre je passe au suivant</button>
     </form>
 </div>

@@ -48,7 +48,7 @@ export class NavigationComponent implements OnInit {
     // Subscribe to menuRightStates updates
     this.navigationService.menuRightStates$.subscribe(states => {
       this.menuRightStates = states;
-      console.log('Updated menuRightStates:', this.menuRightStates);
+      // console.log('Updated menuRightStates:', this.menuRightStates);
     });
   }
 
@@ -90,7 +90,7 @@ export class NavigationComponent implements OnInit {
     this.registrationService.isAdmin().subscribe({
       next: (isAdmin:  any) => {
 
-        console.log('isAdmin dans naviogation compopnent', isAdmin);
+        // console.log('isAdmin dans naviogation compopnent', isAdmin);
         if (isAdmin) {
           this.menuRightStates.isAdmin = isAdmin.state;
           this.menuRightStates.isSignin = false;

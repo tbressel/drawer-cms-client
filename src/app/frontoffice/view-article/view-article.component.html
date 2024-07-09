@@ -8,20 +8,14 @@
 
 
         <div class="article-window__top">
-            <div class="article-window__caseleft" (click)="closeWindow()"></div>
             <div *ngIf="wholeArticle && wholeArticle.length > 0" class="article-window__casetitle">
-                <p>
+                <h2>
                     {{wholeArticle[0]?.article_title}} {{wholeArticle[0]?.title}}
-                </p>
+                </h2>
             </div>
-            <div class="article-window__caseright" (click)="toggleWindow()"></div>
         </div>
     </div>
 
-
-    <div class="article-window__bot">
-        <div *ngIf="wholeArticle && wholeArticle.length > 0" class="article-window__state-bar">Nombre de pages : {{wholeArticle[0]?.max_page}}</div>
-    </div>
     <div class="article-window__bot">
        
         <app-pages  class="article-window__pages" *ngIf="(wholeArticle && wholeArticle.length > 0) && (wholeArticle[0].id_categories === 2 || wholeArticle[0].id_categories === 3)"
@@ -153,7 +147,7 @@
                                     </div>
                                 </li>
                             </ul>
-                            <button type="submit" id="submit-button" class="submit-button">Envoyer</button>
+                            <button type="submit" id="submit-button" class="btn btn-primary">Envoyer</button>
                         </form>
                     </div>
                 </section>

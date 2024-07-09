@@ -133,19 +133,15 @@
     line-height: 1rem;
     border: 1px solid grey;
     border-radius: 5px;
-
-    
     font-size: 1rem;
-
     padding: 5px;
-    margin: 5px 5px;
-
     white-space: pre-wrap;
+    box-sizing: border-box;
 
 }
 
 .border-red {
-
+    box-sizing: border-box;
     padding: 10px;
     margin-top: 1rem;
     background-color: #deb88763;
@@ -172,6 +168,7 @@
 }
 
 .border-green {
+    box-sizing: border-box;
     padding: 10px;
     margin-top: 1rem;
     background-color: rgb(142 222 135 / 47%);
@@ -197,7 +194,7 @@
     }
 }
 .border-yellow {
-
+    box-sizing: border-box;
     padding: 10px;
     margin-top: 1rem;
     background-color: rgb(213 222 135 / 28%);

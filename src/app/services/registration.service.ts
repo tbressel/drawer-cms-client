@@ -37,7 +37,7 @@ export class RegistrationService {
   isAdmin(): Observable<boolean> {
     const token = this.getToken();
     if (!token) {
-      console.error('Token is missing.');
+      // console.error('Token is missing.');
       return of(false);
     }
 
