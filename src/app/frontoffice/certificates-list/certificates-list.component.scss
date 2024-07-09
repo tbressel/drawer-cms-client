@@ -1,1 +1,74 @@
 @import '../../../styles/settings.scss';
+
+
+.certificate-cards-list__wrapper {
+
+    position:relative;
+    margin: 20px 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+
+
+    &.hidden {
+        display: none;
+    }
+
+
+        .certificate-cards-list__casetitle {
+            text-align: left;
+            padding: 5px 0;
+
+
+            h2 {
+                color: #d25a24;
+                text-transform: uppercase;
+                box-sizing: border-box;
+                font-weight: 600;
+                padding: 5px 10px;
+                border-radius: 15px;
+                background: linear-gradient(45deg, rgba(205, 205, 205, 0.4392156863), transparent);
+                box-shadow: rgba(0, 0, 0, 0.2392156863) 5px 5px 5px 1px;
+            }
+
+       
+    }
+
+
+    .certificate-cards-list__content {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    justify-content: space-between;
+    gap: 10px;
+    box-sizing: border-box;
+
+
+        &.hidden {
+            display: none;
+        }
+
+
+    }
+
+}
+
+
+
+@media screen and (min-width: 550px) {
+
+    .certificate-cards-list__wrapper {
+
+        .certificate-cards-list__content {
+            gap: 20px;
+            
+            justify-content: space-around;
+
+
+            .certificate-cards-list__item {
+                width:auto;
+            }
+
+        }
+    }
+}

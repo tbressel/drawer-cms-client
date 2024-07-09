@@ -1,0 +1,120 @@
+@import '../../../styles/settings.scss';
+@import '../../../styles/fonts.scss';
+
+
+.certificate-card__wrapper {
+    box-shadow: rgba(0, 0, 0, 0.2392156863) 5px 5px 5px 1px;
+    border-radius: 10px;
+    background-color: $grass2;
+    margin: 20px 0;
+    
+    text-align: left;
+    max-width: 10rem;
+    height: 250px;
+    display: flex;
+    background-image: url('../../../assets/img/sceau.webp');
+    background-size: cover;
+
+    .certificate-card__header {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+
+        h3 {
+            font-family: 'InterRegular';
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-align: center;
+            height: 100%;
+        }
+
+        .certificate-card__note {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+
+            p {
+                width: 100%;
+            }
+        }
+
+
+        p {
+            font-size: 0.8rem;
+            text-align: center;
+
+            .certificate-card__author,
+            .certificate-card__date {
+
+                font-style: italic;
+            }
+        }
+    }
+
+    .certificate-card__main {
+        .certificate-card__description {
+
+            font-size: 1.2rem;
+            display: none;
+            word-wrap: break-word;
+        }
+
+        .certificate-card__cover {
+            text-align: center;
+            background-size: contain;
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            width: 100%;
+
+
+        }
+    }
+}
+
+
+
+@media screen and (min-width: 550px) {
+    .certificate-card__wrapper {
+        &:hover {
+            background-color: $grass5;
+            // cursor: url('../../../../../assets/icons/atari-arrow1.png'), auto;
+        }
+
+        .certificate-card__main {
+            display: flex;
+
+            .certificate-card__description {
+                display: block;
+                max-width: 250px;
+                padding: 0 20px;
+            }
+
+            .certificate-card__cover {
+                padding: 0 100px;
+                margin-right: 20px;
+
+                img {
+                    max-width: 150px
+                }
+            }
+
+        }
+    }
+}
+
+
+@media screen and (min-width: 1000px) {
+
+
+    .certificate-card__cover {
+        max-height: 150px;
+        min-height: 150px;
+    }
+}

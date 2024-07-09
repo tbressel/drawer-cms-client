@@ -91,7 +91,7 @@ public downloadPDF(): void {
     });
 
     const pageWidth = 210; // Largeur de A4 en portrait
-    const pageHeight = 350; // Hauteur de A4 en portrait
+    const pageHeight = 300; // Hauteur de A4 en portrait
 
     // Ajuster l'image pour qu'elle prenne toute la largeur et toute la hauteur du A4 en portrait
     doc.addImage(imgData, 'PNG', 0, 0, pageWidth, pageHeight);

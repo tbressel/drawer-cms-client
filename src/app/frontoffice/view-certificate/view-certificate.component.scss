@@ -1,1 +1,125 @@
 @import '../../../styles/settings.scss';
+
+.button {
+    display: flex;
+    justify-content: center;
+    
+    }
+    
+    .certificate__wrapper {
+    height: 500px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    line-height: 1rem;
+    
+    
+    
+        .certificate__border_1 {
+            background-color: #CED4C6;
+            padding: 10px;
+            box-sizing: border-box;
+    
+    
+            .certificate__border_2 {
+                background-color: #CED4C6;
+                border: 1px solid #AA7729;
+                padding: 5px;
+                box-sizing: border-box;
+                .certificate__border_3 {
+                    background-color: #CED4C6;
+                    border: 3px solid #AA7729;
+                    // padding: 10px 5px;
+                    box-sizing: border-box;
+                    .certificate__border_4 {
+                        background-color: rgb(255, 255, 255);
+                        padding: 10px;
+                        text-align: center;
+                        // background-image: url('../../../assets/icons/atari-logo-33.webp');
+                        background-position: center;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        box-sizing: border-box;
+    
+                        .certificate__header {
+    
+                            .certificate__title {
+                                color: #AA7729;
+                                font-size: 1.2rem;
+                                }
+    
+                            .certificate__school {
+                                color: #AA7729;
+                                font-size: 0.8rem;
+                                padding: 10px;
+                                box-sizing: border-box;
+                            }
+                        }
+    
+    
+                        .certificate__main {
+                            margin-top: 1rem;
+    
+                            .certificate__p {
+                                font-size: 0.6rem;
+                                padding-top: 10px;
+                            }
+    
+                            .certificate__student {
+                                color: #AA7729;
+                                font-size: 1rem;
+                                margin-bottom: 10px;
+    
+                            }
+    
+                            .certificate__lesson {
+                                color: #AA7729;
+                                font-size: 1rem;
+                                padding: 20px 0;
+    
+                            }
+    
+                            .certificate__date {
+                                font-size: 0.5rem;
+                            }
+                        }
+    
+                        .certificate__footer {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            width: 30%;
+                            margin-top: 1rem;
+                            margin-bottom: 1rem;
+    
+                            .certificate__signature {
+    
+                                border-bottom: 1px solid #AA7729;
+    
+                                img {
+                                    width: 80%;
+                                }
+                            }
+    
+                            .certificate__author {
+                                font-size: 0.5rem;
+                                font-weight: 600;
+                                padding: 5px;
+    
+                            }
+    
+                            .certificate__author-role {
+                                font-size: 0.3rem;
+                                padding: 2px;
+    
+                            }
+                        }
+                    }
+    
+    
+                }
+            }
+        }
+    }
+    

@@ -8,23 +8,23 @@
 
         <div class="article-cards-list__top">
 
-            <div class="article-cards-list__caseleft" (click)="closeWindow()">
+            <!-- <div class="article-cards-list__caseleft" (click)="closeWindow()">
 
-            </div>
+            </div> -->
             <div class="article-cards-list__casetitle">
-                <p>
+                <h2>
                     {{title}}
-                </p>
+                </h2>
             </div>
-            <div class="article-cards-list__caseright" (click)="toggleWindow()">
+            <!-- <div class="article-cards-list__caseright" (click)="toggleWindow()">
 
-            </div>
+            </div> -->
         </div>
 
     </div>
-    <div class="article-cards-list__bot">
+    <!-- <div class="article-cards-list__bot">
         <div class="article-cards-list__state-bar">Nombre d'articles : {{ dataArticles.length }}</div>
-    </div>
+    </div> -->
 
     <div class="article-cards-list__content" [ngClass]="{'hidden' : isWindowToggled}">
         @for (article of dataArticles; track article) {

@@ -1,0 +1,16 @@
+@import '../../../styles/settings.scss';
+
+
+.tag__wrapper {
+    // background-color: $tag-red;
+    border: 1px solid $black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    width: fit-content;
+    p {
+        
+        font-weight: 600;
+        font-size: 0.8rem;
+    }
+
+}

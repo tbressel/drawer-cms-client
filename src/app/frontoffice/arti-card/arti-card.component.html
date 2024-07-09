@@ -1,7 +1,7 @@
 <div id="{{ article.id_articles}}" class="article-card__wrapper" (click)="selectArticle( article.id_articles, 1)">
 
     <div class="article-card__header">
-        <h2>{{ article.title}}</h2>
+        <h3>{{ article.title}}</h3>
         <p>par <span class="article-card__author">{{ article.username}}</span>, publié le <time
                 class="article-card__date">{{ article.creation_date | date: 'medium' }}</time></p>
     </div>

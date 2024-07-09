@@ -1,0 +1,109 @@
+@import '../../../styles/settings.scss';
+
+
+
+.article-card__wrapper {
+    // border: 1px solid $grass12;
+    box-shadow: rgba(0, 0, 0, 0.2392156863) 5px 5px 5px 1px;
+    border-radius: 10px;
+
+    background-color: $grass2;
+    margin: 20px 0;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+
+    .article-card__header {
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+            font-weight: 600;
+            font-family: InterRegular;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 0.7rem;
+            // padding: 0 20px 10px 20px;
+
+            .article-card__author,
+            .article-card__date {
+                
+                font-style: italic;
+            }
+        }
+    }
+
+    .article-card__main {
+        .article-card__description {
+            font-family: 'InterRegular';
+            font-size: 0.8rem;
+            line-height: 1.4rem;
+            display: none;
+            word-wrap: break-word;
+        }
+
+        .article-card__cover {
+            text-align: center;
+            background-size: contain;
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            width: 100%;
+
+
+        }
+    }
+
+    .article-card__tags {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        gap: 10px;
+    }
+}
+
+
+
+@media screen and (min-width: 550px) {
+.article-card__wrapper {
+    &:hover {
+        background-color: $grass5;
+        // cursor: url('../../../../../assets/icons/atari-arrow1.png'), auto;
+    }
+
+    .article-card__main {
+        display: flex;
+
+        .article-card__description {
+            display: block;
+            max-width: 250px;
+            padding: 0 20px;
+        }
+
+        .article-card__cover {
+            padding: 0 100px;
+            margin-right: 20px;
+
+            img {
+                max-width: 150px
+            }
+        }
+
+    }
+}
+}
+
+
+@media screen and (min-width: 1000px) {
+
+
+.article-card__cover {
+    max-height: 150px;
+    min-height: 150px;
+}
+}
