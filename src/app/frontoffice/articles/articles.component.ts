@@ -60,6 +60,7 @@ export class ArticlesComponent implements OnInit {
     this.articleService.getLastCoding(this.idCategory).subscribe({
       next: (data: any) => {
         this.dataArticles = data.body;
+        console.log(this.dataArticles);
         this.isLoading = false;
       },
       error: (error: any) => {

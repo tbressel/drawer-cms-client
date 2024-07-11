@@ -1,0 +1,69 @@
+@import '../../../styles/settings.scss';
+
+.about__container {
+
+    background-color: $grass1;
+    line-height: 1.4rem;
+        
+    p {       
+        color: $black;
+        margin: 5px;
+        text-align: center;
+    }
+ 
+    .about__subcontainer {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .about__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+
+            border-bottom: 2px dotted $black;            
+        }
+
+        .about__footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+
+        }
+
+        .about__picture {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            padding: 5px;
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+
+        .about__button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            
+            
+            button{
+                font-family: 'GemLowRes';
+            background-color: $grass1;
+            border: 5px solid $black;
+            margin-bottom: 5px;
+            width: 100px;
+        }
+    }
+
+
+    }
+
+}

@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'drawer-client' title`, () => {
+  it(`should have the 'drawer-frontoffice' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('drawer-client');
+    expect(app.title).toEqual('drawer-frontoffice');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, drawer-client');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, drawer-frontoffice');
   });
 });

@@ -1,5 +1,5 @@
 {
-  "name": "drawer-client",
+  "name": "drawer-frontoffice",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:drawer-client": "node dist/drawer-client/server/server.mjs"
+    "serve:ssr:drawer-frontoffice": "node dist/drawer-frontoffice/server/server.mjs"
   },
   "private": true,
   "dependencies": {

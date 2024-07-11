@@ -14,5 +14,5 @@ import { SideBarComponent } from './frontoffice/side-bar/side-bar.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'drawer-client';
+  title = 'drawer-frontoffice';
 }

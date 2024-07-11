@@ -45,18 +45,7 @@
       font-size: calc($font-body + 0.2rem);
     }
   }
-  .navigation-bar__logo {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    background-color: transparent;
 
-
-    img {
-      width: 24px;
-      padding: 0 10px;
-    }
-  }
 
 }
 
@@ -94,13 +83,15 @@
   max-width: calc(100% - 40px);
   width: 100%;
   background-color: $white;
-  transition: 500ms ease-in-out;
 
   &.open {
     transform: translateZ(0);
-    transition: 500ms ease-in-out;
+    transition: 300ms ease-in-out;
   }
 
+  .navigation-bar__logo {
+    display: none;
+  }
 
   .navigation-overlay__header {
     position: relative;
@@ -109,7 +100,6 @@
     justify-content: space-between;
     padding: 6px 20px 3px;
     background-color: $white;
-    max-width: calc(100% - 40px);
 
 
     .navigation-overlay__title {
@@ -152,7 +142,7 @@
       a {
         position: relative;
         display: block;
-        padding: 10px 20px 12px;
+        padding: 10px  0.5rem  12px;
         max-width: calc(100% - 40px);
         color: $orange;
         text-transform: uppercase;
@@ -160,4 +150,116 @@
       }
     }
   }
+}
+
+//////////////////////   TABLET   ////////////////////
+
+@media screen and (min-width: 750px) {
+ 
+.navigation-bar__wrapper {
+  height: fit-content;
+  .navigation-bar__burger {
+    display: none;
+  }
+  .navigation-bar__title {
+    display: none;
+  }
+}
+
+.navigation-overlay__mask {
+  display: none;
+ 
+  &.visible {
+    display: none;
+  }
+}
+
+.navigation-overlay__wrapper {
+  position: relative;
+  display: flex;
+  transform: none;
+  max-width: 100%;
+  width: 100%;
+  transition: none ;
+
+  .navigation-bar__logo {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-color: transparent;
+    width: fit-content;
+
+    img {
+      width: 50px;
+      padding: 0 10px;
+    }
+  }
+
+  .navigation-overlay__header {
+
+    display: none;
+
+
+
+    .navigation-overlay__title {
+      color: $black;
+      font-weight: 600;
+      font-size: calc($font-body + 0.2rem);
+    }
+
+    .navigation-overlay__close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background-color: transparent;
+      border: none;
+      width: 40px;
+      height: 40px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+  }
+
+  .navigation-overlay__menu-left {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  
+
+    li {
+      display: flex;
+      align-items: center;
+      word-wrap: normal;
+      white-space: nowrap;
+      width: fit-content;
+
+      a {
+        max-width: 100%;
+      }
+    }
+  }
+  .navigation-overlay__menu-right {
+    display: flex;
+    justify-content: flex-end;
+    white-space: nowrap;
+    width: 100%;
+  
+
+    li {
+      display: flex;
+      align-items: center;
+      word-wrap: normal;
+      width: fit-content;
+
+      a {
+        max-width: 100%;
+      }
+    }
+  }
+}
 }
