@@ -98,7 +98,7 @@ export class SigninComponent {
   // Form submission
   onSubmit() {
     if (this.signinForm.valid) {
-      console.log('Form Submitted!', this.signinForm.value);
+      // console.log('Form Submitted!', this.signinForm.value);
 
       const { username, email, password } = this.signinForm.value;
       this.isLoading = true;
