@@ -137,7 +137,7 @@ img {
             .header-questions__article-bloc--center {
                 display: grid;
                 grid-auto-columns: 1fr;
-                ;
+                
 
                 .header__article-description,
                 .header-questions__article-description {
@@ -245,7 +245,12 @@ img {
             margin-top: 1.5rem;
             .main-questions__content-subtitle--center {
                 font-weight: 600;
+                line-height: normal;
 
+            }
+            p {
+               font-size: 0.8rem !important;
+               font-style: italic;
             }
             .main-questions__article-text--center ul li {
                 display: flex;
@@ -300,300 +305,73 @@ img {
     }
 }
 
+
 ///////////////////////////////////////////////////
 ////////////////// Tablet Style ///////////////////
 ///////////////////////////////////////////////////
 @media screen and (min-width: 750px) {
 
-
-    p {
-        font-size: 1.5rem;
+    .header__article-bloc--wrapper {
+        flex-direction: row !important;
     }
 
-    .article-window__wrapper {
-
-
-        .article-window__content {
-            gap: 20px;
-            justify-content: space-around;
-
-            .article-window__item {
-                width: auto;
-            }
-        }
+    .header__article-infos {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
     }
 
-    .article__wrapper,
-    .article-questions__wrapper {
-        flex-direction: column;
 
+    .main__article-box--global {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
-        // Le header
-        .header__wrapper,
-        .header-questions__wrapper {
+        .main__article-box--left {
+            width: 100%;
+            margin-right: 10px;
 
-            .header__article-title,
-            .header-questions__article-title {
-                font-size: 3rem;
-            }
-
-            .header__article-bloc--wrapper,
-            .header-questions__article-bloc--wrapper {
-                flex-direction: row;
-
-                .header__article-bloc--left,
-                .header-questions__article-bloc--center {
-                    flex-direction: column;
-                    justify-content: space-between;
-                    margin: 1rem 0;
-
-                    .header__article-description,
-                    .header-questions__article-description {
-                        line-height: 2.3rem;
-                    }
-
-                    .header__article-infos p {
-                        font-size: 1.2rem;
-                    }
-                }
-
-                .header__article-bloc--right {
-                    width: 50%;
-
-                    .header__article-cover img {
-                        max-width: 25vw;
-                    }
-                }
+            .main__article-cover--left {
+                text-align: center;
             }
         }
 
-        // Le main
-        .main__content--wrapper {
-            flex-direction: row;
-            justify-content: space-between;
+        .main__article-box--center {
+            width: 100%;
 
-
-            .main__article-box--left {
-                flex-direction: column;
-                // justify-content: center;
-                width: 100%;
-
-
-
-                .main__article-subtitle--left {
-                    margin: 0;
-                    text-align: left;
-
-
-                }
-
-                .main__article-text--left {
-                    margin: 2rem 1rem 1rem 0;
-
-                }
-
-                .main__article-cover--left {
-                    text-align: center;
-                    height: 100%;
-                    align-items: center;
-                    justify-content: center;
-                    display: flex;
-
-                    &img {
-                        margin: 1rem 0;
-                        max-height: 100%;
-                        min-height: 100%;
-                    }
-                }
+            .main__article-cover--center {
+                text-align: center;
+                margin: 0 10px;
             }
+        }
 
-            .main__article-box--center {
-                flex-direction: column;
-                width: 100%;
+        .main__article-box--right {
+            width: 100%;
+            margin-left: 10px;
 
-
-                .main__article-subtitle--center {
-                    margin: 0;
-                    text-align: center;
-
-
-                }
-
-                .main__article-text--center {
-                    margin: 2rem 1rem 1rem 0;
-
-                }
-
-                .main__article-cover--center {
-                    text-align: center;
-
-                    &img {
-                        margin: 1rem 0;
-                        max-width: 45vw;
-                        // max-width: 350px;
-                    }
-                }
-            }
-
-            .main__article-box--right {
-                flex-direction: column;
-                // justify-content: center;
-                width: 100%;
-                margin-left: 10px;
-
-
-                .main__article-subtitle--right {
-                    margin: 0;
-                    text-align: left;
-                }
-
-                .main__article-text--right {
-                    margin: 2rem 1rem 1rem 0;
-
-                }
-
-                .main__article-cover--right {
-                    text-align: center;
-                    height: 100%;
-                    align-items: center;
-                    justify-content: center;
-                    display: flex;
-
-                    &img {
-                        margin: 1rem 0;
-                        max-height: 100%;
-                        min-height: 100%;
-                    }
-                }
+            .main__article-cover--right {
+                text-align: center;
             }
         }
     }
 
 
-}
 
-///////////////////////////////////////////////////
-////////////////// Desktop Style //////////////////
-///////////////////////////////////////////////////
-@media screen and (min-width: 1000px) {
+    .main__content--wrapper {
+        flex-direction: row !important;
 
-
-    .article__wrapper,
-    .article-questions__wrapper {
-
-        // Le header
-        .header__wrapper,
-        .header-questions__wrapper {
-
-            .header__article-bloc--wrapper,
-            .header-questions__article-bloc--wrapper {
-                flex-direction: row;
-
-                .header__article-bloc--left,
-                .header-questions__article-bloc--center {
-                    width: 100%;
-                }
-
-                .header__article-bloc--right {
-                    width: 50%;
-                }
-            }
+        .main__article-box--left {
+            width: 100%;
+            margin-right: 10px;
+        }
+        .main__article-box--center {
+            width: 100%;
+            
+        }
+        .main__article-box--right {
+            width: 100%;
+            margin-left: 10px;
         }
 
-        // Le main
-        .main__content--wrapper {
-            flex-direction: row;
-            justify-content: space-between;
-
-
-            .main__article-box--left {
-                flex-direction: column;
-                width: 100%;
-
-
-                .main__article-subtitle--left {
-                    margin: 0;
-                    text-align: left;
-                }
-
-                .main__article-text--left {
-                    margin: 2rem 1rem 1rem 0;
-                }
-
-                .main__article-cover--left {
-                    text-align: center;
-                    height: 100%;
-                    align-items: center;
-                    justify-content: center;
-                    display: flex;
-
-                    &img {
-                        margin: 1rem 0;
-                        max-height: 100%;
-                        min-height: 100%;
-                    }
-                }
-            }
-
-            .main__article-box--center {
-                flex-direction: column;
-                width: 100%;
-
-
-                .main__article-subtitle--center {
-                    margin: 0;
-                    text-align: center;
-
-
-                }
-
-                .main__article-text--center {
-                    margin: 2rem 1rem 1rem 0;
-
-                }
-
-                .main__article-cover--center {
-                    text-align: center;
-
-                    &img {
-                        margin: 1rem 0;
-                        max-width: 45vw;
-                        // max-width: 350px;
-                    }
-                }
-            }
-
-            .main__article-box--right {
-                flex-direction: column;
-                width: 100%;
-                margin-left: 10px;
-                ;
-
-                .main__article-subtitle--right {
-                    margin: 0;
-                    text-align: left;
-                }
-
-                .main__article-text--right {
-                    margin: 2rem 1rem 1rem 0;
-
-                }
-
-                .main__article-cover--right {
-                    text-align: center;
-                    height: 100%;
-                    align-items: center;
-                    justify-content: center;
-                    display: flex;
-
-                    &img {
-                        margin: 1rem 0;
-                        max-height: 100%;
-                        min-height: 100%;
-                    }
-                }
-            }
-        }
     }
-
 }

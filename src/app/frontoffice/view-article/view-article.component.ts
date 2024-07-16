@@ -19,6 +19,7 @@ import { NotificationsComponent } from '../notifications/notifications.component
 
 // Config
 import { CONFIG } from '../../../config';
+import { log } from 'node:console';
 
 
 interface QuestionsForm {
@@ -35,7 +36,8 @@ interface Choices {
 
 interface Questions {
   id_question: number,
-  text: string
+  text: string,
+  isMultiple: boolean
 
 }
 
@@ -192,7 +194,8 @@ transformData(data: any[]): QuestionsForm[] {
     const questionForm: QuestionsForm = {
       question: {
         id_question: questionData.id_questions,
-        text: questionData.text
+        text: questionData.text,
+        isMultiple: questionData.isMultiple
       },
       choices: choices
     };
