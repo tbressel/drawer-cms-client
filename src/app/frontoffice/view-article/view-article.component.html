@@ -135,7 +135,7 @@
                                 <li *ngFor="let item of htmlForm; let i = index">
                                     <div id="question-{{item.question.id_question}}" class="main-questions__article-subtitle--center">
                                         <h2 class="main-questions__content-subtitle--center">{{item.question.text}}</h2>
-                                        <p>{{item.question.isMultiple ? '(plusieurs réponses possible)' : '(une seule réponse possible)' }}</p>                                   
+                                        <p [ngClass]="{'red': item.question.isMultiple}">{{item.question.isMultiple ? '(plusieurs réponses possible)' : '(une seule réponse possible)' }}</p>                                   
                                     </div>
                                     <div class="main-questions__article-text--center">
                                         <ul>
