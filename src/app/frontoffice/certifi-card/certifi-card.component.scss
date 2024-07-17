@@ -7,52 +7,54 @@
     border-radius: 10px;
     background-color: $grass2;
     margin: 20px 0;
-    
+
     text-align: left;
-    max-width: 10rem;
-    height: 250px;
     display: flex;
-    background-image: url('../../../assets/img/sceau.webp');
-    background-size: cover;
+
 
     .certificate-card__header {
         display: flex;
-        flex-direction: column;
         padding: 10px;
 
-
-        h3 {
-            font-family: 'InterRegular';
-            font-weight: 600;
-            font-size: 0.8rem;
-            text-align: center;
-            height: 100%;
+        .certificate-card__logo {
+            height: 50px;
+            width: auto;
         }
 
-        .certificate-card__note {
-            position: relative;
+        .certificate-card__details {
             display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100%;
-            font-size: 2rem;
-            font-weight: 700;
-            text-align: center;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 0 10px;
 
-            p {
-                width: 100%;
+
+            h3 {
+                font-family: 'InterRegular';
+                font-weight: 600;
+                font-size: 0.8rem;
+                color: $orange;
             }
-        }
+
+            .certificate-card__description {
+                display: flex;
+
+                .certificate-card__note {
+
+                    p {
+                        width: 100%;
+                    }
+                }
 
 
-        p {
-            font-size: 0.8rem;
-            text-align: center;
+                p {
+                    font-size: 0.8rem;
 
-            .certificate-card__author,
-            .certificate-card__date {
+                    .certificate-card__author,
+                    .certificate-card__date {
 
-                font-style: italic;
+                        font-style: italic;
+                    }
+                }
             }
         }
     }
@@ -84,37 +86,7 @@
     .certificate-card__wrapper {
         &:hover {
             background-color: $grass5;
-            // cursor: url('../../../../../assets/icons/atari-arrow1.png'), auto;
         }
-
-        .certificate-card__main {
-            display: flex;
-
-            .certificate-card__description {
-                display: block;
-                max-width: 250px;
-                padding: 0 20px;
-            }
-
-            .certificate-card__cover {
-                padding: 0 100px;
-                margin-right: 20px;
-
-                img {
-                    max-width: 150px
-                }
-            }
 
         }
     }
-}
-
-
-@media screen and (min-width: 1000px) {
-
-
-    .certificate-card__cover {
-        max-height: 150px;
-        min-height: 150px;
-    }
-}

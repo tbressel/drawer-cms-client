@@ -53,7 +53,7 @@
       <a *ngIf="!menuRightStates.isLogin && menuRightStates.isLogout" [routerLink]="'/logout'" (click)="closeOverlay()">Se déconnecter</a>
     </li>
     <li>
-      <a *ngIf="menuRightStates.isAdmin && !menuRightStates.isLogin" [routerLink]="'/admin'" (click)="closeOverlay()">Admin</a>
+      <a *ngIf="menuRightStates.isAdmin && !menuRightStates.isLogin" [routerLink]="'/admin'" (click)="closeOverlay()" target="_blank">Admin</a>
     </li>
   </ul>
 </div>

@@ -2,9 +2,15 @@
     (click)="selectCertification( certification.id_certificates)">
 
     <div class="certificate-card__header">
-        <h3>{{ certification.title}}</h3>
-        <p class="certificate-card__note">{{ certification.note}} / 20</p>
-        <p>obtenu le : <br><time class="certificate-card__date">{{ certification.creationDate | date: 'mediumDate' }}</time></p>
+        <img class="certificate-card__logo" src="./assets/img/medals/{{ medalUrl }}" alt="medal">
+        <div class="certificate-card__details">
+            <h3>{{ certification.title}}</h3>
+            <div class="certificate-card__description">
+
+                <p class="certificate-card__note">{{ certification.note}} / 20</p>
+
+            </div>
+        </div>
     </div>
 
 </div>

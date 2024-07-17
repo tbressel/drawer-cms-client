@@ -54,21 +54,3 @@
 }
 
 
-
-@media screen and (min-width: 750px) {
-
-    .certificate-cards-list__wrapper {
-
-        .certificate-cards-list__content {
-            gap: 20px;
-            
-            justify-content: space-around;
-
-
-            .certificate-cards-list__item {
-                width:auto;
-            }
-
-        }
-    }
-}

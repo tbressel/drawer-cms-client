@@ -81,12 +81,13 @@ ngOnInit(): void {
   this.certificateService.getCertificates(this.token).subscribe({
     next: (data: any) => {
       this.dataCertificates = data.body;
+      console.log(this.dataCertificates);
       this.isLoading = false;
-      this.detector.detectChanges();
+      // this.detector.detectChanges();
     },
     error: (error: any) => {
       this.isLoading = false;
-      this.detector.detectChanges();
+      // this.detector.detectChanges();
       const message: string = error.error.message;
       this.notificationServices.displayNotification(this, message, 3000, '/login', 'server', false);
     }
